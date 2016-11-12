@@ -26,7 +26,7 @@ var Engine = (function(global) {
         lastTime;
 
     canvas.width = 505;
-    canvas.height = 650;
+    canvas.height = 600;
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
@@ -135,6 +135,7 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
+        ctx.drawImage(Resources.get('images/background.png'), 0, 570);
 
         renderEntities();
     }
@@ -153,6 +154,7 @@ var Engine = (function(global) {
 
         player.render();
         gameLife.render();
+        score.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -173,6 +175,7 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
+        'images/background.png',
         'images/Heart.png',
         'images/GameOver.png'
     ]);

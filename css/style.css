@@ -1,9 +1,13 @@
 body {
     text-align: center;
+    background: url(http://previews.123rf.com/images/albund/albund1402/albund140200053/25788452-A-vintage-arcade-game-machine-with-colorful-controllers-and-a-screen-on-an-isolated-white-background-Stock-Photo.jpg);
+    background-size: 1550px, 800px;
 }
 .heading{
 	margin-left: auto;
 	margin-right: auto;
+	color: #ffffff;
+	font-size: 20px;
 }
 .container{
 	margin-left: auto;
@@ -14,7 +18,7 @@ body {
   width: 130px;
   margin-left: auto;
   margin-right: auto;
-  background-color: black;
+  background-color: #0DE729;
   border-radius: 10px
 }
 #restart {
@@ -31,12 +35,12 @@ body {
   font-weight: bold;
 }
 #restart:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #77D583;
 }
 #restart:focus {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #77D583;
   outline: 0;
 }
 #restart:active {
-  background-color: rgba(255, 255, 255, 0.5)
+  background-color: #77D583)
   }

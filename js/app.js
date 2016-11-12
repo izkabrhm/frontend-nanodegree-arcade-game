@@ -33,7 +33,6 @@ Enemy.prototype.update = function(dt) {
         && player.y + 73 <= this.y + 135
         && player.x + 76 >= this.x + 11) { 
     player.reset();
-    score.updateMiss();
     gameLife.decrease();
   }
 };
@@ -111,19 +110,22 @@ var Score = function() {
   this.miss = 0;
 };
 
+Score.prototype.render = function(){
+  ctx.font = '30px Arial';
+  ctx.fillStyle = 'white';
+  ctx.fillText("Score:"+this.success+"  Level:"+gameLevel,0,77);
+}
+
 Score.prototype.updateSuccess = function() {
   this.success += 1;
-  document.getElementById('score-success').innerHTML = this.success;
   gameLevel += 1;
-  console.log('current score: ' + score + ', current level: ' + gameLevel);
+  console.log('score: ' + score + ',  level: ' + gameLevel);
+  ctx.font = '30px Arial';
+  ctx.fillStyle = 'white';
+  ctx.fillText("Score:"+this.success+"  Level:"+gameLevel,0,77);
   
     allEnemies.push(new Enemy());
   
-};
-
-Score.prototype.updateMiss = function() {
-  this.miss += 1;
-  document.getElementById('score-miss').innerHTML = this.miss;
 };
 
 Score.prototype.reset = function(){
@@ -141,14 +143,11 @@ var Life = function() {
 Life.prototype.render = function() {
   var x = 0;
   for (var i = 0; i < this.life; i++) {
-    ctx.drawImage(Resources.get(this.lifeImg), x, 570, 50,85);
-    x = x + 50;
+    ctx.drawImage(Resources.get(this.lifeImg), x, 553, 35,60);
+    x = x + 35;
   }
   if (this.life === 0) {
     ctx.drawImage(Resources.get('images/GameOver.png'), 0, 0, 505, 650);
-    ctx.font = '30px Arial';
-    ctx.fillStyle = 'white';
-    ctx.fillText("You're Score is "+score.success , 120, 325);
   }
 }
 /**
@@ -158,11 +157,11 @@ Life.prototype.decrease = function() {
   if (this.life > 0) {
     this.life = this.life - 1;
   }
-  var x = 0;
+  /*var x = 0;
   for (var i = 0; i < this.life; i++) {
     ctx.drawImage(Resources.get(this.lifeImg), x, 570, 50,85);
     x = x + 50;
-  }
+  }*/
 }
 
 // Now instantiate your objects.

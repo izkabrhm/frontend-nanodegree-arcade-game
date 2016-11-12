@@ -141,14 +141,14 @@ var Life = function() {
 Life.prototype.render = function() {
   var x = 0;
   for (var i = 0; i < this.life; i++) {
-    ctx.drawImage(Resources.get(this.lifeImg), x, 630);
+    ctx.drawImage(Resources.get(this.lifeImg), x, 570, 50,85);
     x = x + 50;
   }
-  if (this.life === 1) {
-    ctx.drawImage(Resources.get('images/GameOver.png'), 0, 50);
+  if (this.life === 0) {
+    ctx.drawImage(Resources.get('images/GameOver.png'), 0, 0, 505, 650);
     ctx.font = '30px Arial';
     ctx.fillStyle = 'white';
-    ctx.fillText("You're Score is"+score.success+" gems",300,420);
+    ctx.fillText("You're Score is "+score.success , 120, 325);
   }
 }
 /**
@@ -157,7 +157,11 @@ Life.prototype.render = function() {
 Life.prototype.decrease = function() {
   if (this.life > 0) {
     this.life = this.life - 1;
-    console.log(this.life);
+  }
+  var x = 0;
+  for (var i = 0; i < this.life; i++) {
+    ctx.drawImage(Resources.get(this.lifeImg), x, 570, 50,85);
+    x = x + 50;
   }
 }
 

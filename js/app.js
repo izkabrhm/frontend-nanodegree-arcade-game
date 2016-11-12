@@ -7,7 +7,6 @@ var Enemy = function() {
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
   this.sprite = 'images/enemy-bug.png';
-  
   this.x = -100;
   this.y = enemyPosY[Math.floor(Math.random() * 3)];
   this.speed = getRandomInt(100, 550);
@@ -45,7 +44,6 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-
 var Player = function() {
   this.sprite = 'images/char-boy.png';
   this.reset();
@@ -110,12 +108,18 @@ var Score = function() {
   this.miss = 0;
 };
 
+/**
+ * Renders the score on the screen.
+ */
 Score.prototype.render = function(){
   ctx.font = '30px Arial';
   ctx.fillStyle = 'white';
   ctx.fillText("Score:"+this.success+"  Level:"+gameLevel,0,77);
 }
 
+/**
+ * Updates the score on the screen.
+ */
 Score.prototype.updateSuccess = function() {
   this.success += 1;
   gameLevel += 1;
@@ -123,9 +127,7 @@ Score.prototype.updateSuccess = function() {
   ctx.font = '30px Arial';
   ctx.fillStyle = 'white';
   ctx.fillText("Score:"+this.success+"  Level:"+gameLevel,0,77);
-  
-    allEnemies.push(new Enemy());
-  
+  allEnemies.push(new Enemy());
 };
 
 Score.prototype.reset = function(){
@@ -137,13 +139,14 @@ var Life = function() {
   this.lifeImg = 'images/Heart.png';
   this.life = 3;
 }
+
 /**
  * Renders the life on the screen.
  */
 Life.prototype.render = function() {
-  var x = 0;
+  var x = 0; 
   for (var i = 0; i < this.life; i++) {
-    ctx.drawImage(Resources.get(this.lifeImg), x, 553, 35,60);
+    ctx.drawImage(Resources.get(this.lifeImg), x, 525, 35,60);
     x = x + 35;
   }
   if (this.life === 0) {
@@ -156,18 +159,12 @@ Life.prototype.render = function() {
 Life.prototype.decrease = function() {
   if (this.life > 0) {
     this.life = this.life - 1;
-  }
-  /*var x = 0;
-  for (var i = 0; i < this.life; i++) {
-    ctx.drawImage(Resources.get(this.lifeImg), x, 570, 50,85);
-    x = x + 50;
-  }*/
+  } 
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
 var numEnemies = 3;
 var allEnemies = [];
 for(var i = 0; i < numEnemies; i++) {

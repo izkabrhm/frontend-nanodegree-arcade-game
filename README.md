@@ -15,3 +15,5 @@ The goal of the game is navigate the player over the field to cross the streets 
 - Graphics (additional animation added when player completes a level, loses a life, loses all lifes)
 
 You can play the game the following [link](https://github.com/izkabrhm/frontend-nanodegree-arcade-game.git).
+
+Once you clone or download the game to your local directory, open index.html using your preferred web browser and start playing!!!
